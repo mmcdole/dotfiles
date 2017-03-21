@@ -1,4 +1,4 @@
-" Use Vim settings, rather then Vi settings (much better!).
+" Use Vim settings rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
@@ -37,12 +37,15 @@ let mapleader=","
 " This loads all the plugins specified below
 
 call plug#begin('~/.vim/plugged')
+Plug 'haya14busa/incsearch.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'wting/rust.vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " ================ Turn Off Swap Files ==============
@@ -113,10 +116,21 @@ color jellybeans
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <c-p> :Files<cr>
 set pastetoggle=<leader>p
-nnoremap <leader>rr :RustRun<cr>
 nnoremap <leader>tr :RustRun! --test<cr>
 let delimitMate_expand_cr=1
+let g:go_fmt_command = "goimports"
+
+
+" Change easymotion back to <Leader>, not the default <Leader><Leader>
+map <Leader> <Plug>(easymotion-prefix)
+nnoremap <leader>rr :RustRun<cr>
+
+" Incsearch 
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)"
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)

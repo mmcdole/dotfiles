@@ -10,6 +10,7 @@ taps=(
 formulae=(
   vim --override-system-vi
   fzf
+  jq
   stow
   ssh-copy-id
   git

@@ -16,11 +16,10 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/mmcdole/go/bin:$PATH"
-export PATH="/home/david/pear/bin:$PATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
-export GOPATH="/Users/mmcdole/go"
+export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$HOME/.yarn/bin:$PATH"
 export GOBIN="$GOPATH/bin"
 
 source $ZSH/oh-my-zsh.sh
